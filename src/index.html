@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="styles/reset.css">
+  <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <h1 class="header__title">Название олимпиады</h1>
+      <div class="header__student-info" id="student-info">
+        <div class="header__student-item">
+          <label for="surname" class="header__label">Фамилия:</label>
+          <input class="header__input" id="surname" type="text" placeholder="Иванов">
+        </div>
+        <div class="header__student-item">
+          <label for="name" class="header__label">Имя:</label>
+          <input class="header__input" id="name" type="text" placeholder="Иван">
+        </div>
+        <div class="header__student-item">
+          <label for="group_number" class="header__label">Номер группы:</label>
+          <input class="header__input header__input--small" id="group_number" type="number" placeholder="3980">
+        </div>
+      </div>
+    </header>
+
+    <main class="quiz">
+    </main>
+
+    <footer class="footer">
+      <button class="footer__button" id="save-btn">Сохранить</button>
+    </footer>
+  </div>
+  <script type="module" src="render.js"></script>
+</body>
+</html>

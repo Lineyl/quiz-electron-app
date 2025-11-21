@@ -1,0 +1,47 @@
+{
+  "type": "module",
+  "name": "quiz-olimpiada",
+  "version": "1.0.0",
+  "description": "Приложение для проведения олимпиады",
+  "main": "src/index.js",
+  "homepage": "https://example.com",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder",
+    "build-win": "electron-builder --win",
+    "build-linux": "electron-builder --linux"
+  },
+  "build": {
+    "appId": "com.olimpiada.quiz",
+    "asar": true,
+    "productName": "Олимпиада",
+    "files": [
+      "src/**/*",
+      "package.json"
+    ],
+    "win": {
+      "target": ["nsis"],
+      "icon": "src/logo.png",
+      "forceCodeSigning": false
+    },
+    "linux": {
+      "target": ["deb", "rpm"],
+      "icon": "src/logo.png"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true
+    }
+  },
+  "keywords": [],
+  "author": {
+    "name": "Artem",
+    "email": "krughlikov.rab@gmail.com"
+  },
+  "license": "ISC",
+  "dependencies": {},
+  "devDependencies": {
+    "electron": "^39.2.3",
+    "electron-builder": "^26.0.12"
+  }
+}

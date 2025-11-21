@@ -1,0 +1,195 @@
+@font-face {
+  font-family: 'Montserrat';
+  src: url('../fonts/Montserrat-Regular.woff2') format('woff2');
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  src: url('../fonts/Montserrat-Medium.woff2') format('woff2');
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  src: url('../fonts/Montserrat-Bold.woff2') format('woff2');
+  font-weight: 700;
+}
+
+body {
+  font-family: 'Montserrat', Arial, sans-serif;
+  background-color: #E6E6FA;
+  color: #333;
+  line-height: 1.5;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 900px;
+  margin: 1rem auto;
+  padding: 0;
+}
+
+.header {
+  padding: 1.5rem;
+  background-color: #fff;
+  border-top: 0.25rem solid #5b3ba0;
+  margin-bottom: 2rem;
+  border-radius: 1rem;
+}
+
+.header__title {
+  font-weight: 700;
+  font-size: 3rem;
+  margin-bottom: 2rem;
+  text-align: center;
+  color: #5b3ba0;
+}
+
+.header__student-info {
+  display: flex;
+  gap: 1rem;
+  background-color: #f3f0ff;
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+}
+
+.header__student-item {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.header__student-item:last-child {
+  flex: 0.5;
+}
+
+.header__label {
+  font-weight: 600;
+  margin-bottom: 0.3rem;
+}
+
+.header__input {
+  width: 100%;
+  padding: 0.75rem;
+  border: 2px solid #ddd;
+  border-radius: 0.5rem;
+  background-color: white;
+}
+
+.header__input:focus {
+  border-color: #5b3ba0;
+}
+
+.header__input::placeholder {
+  color: #999;
+}
+
+.quiz {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.question {
+  background-color: white;
+  padding: 1.5rem;
+  border-left: 4px solid #5b3ba0;
+  border-radius: 0.5rem;
+}
+
+.correct {
+  background-color: rgb(0, 255, 0, 0.3);
+}
+
+.incorrect {
+  background-color: rgb(255, 0, 0, 0.3);
+}
+
+.question__number {
+  background-color: #5b3ba0;
+  color: white;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 2rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.question__text {
+  margin-bottom: 1rem;
+  line-height: 1.5;
+}
+
+.question__input {
+  width: 100%;
+  padding: 0.75rem;
+  border: 2px solid #ddd;
+  border-radius: 0.5rem;
+  font-family: monospace;
+  font-size: 1rem;
+  background-color: #fff;
+}
+
+.question__input:focus {
+  border-color: #5b3ba0;
+}
+
+.question__options {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+}
+
+.question__label {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.footer {
+  background-color: white;
+  padding: 1.5rem;
+  border-bottom: 3px solid #5b3ba0;
+  border-radius: 0.5rem;
+  text-align: center;
+}
+
+.footer__button {
+  background-color: #5b3ba0;
+  color: white;
+  padding: 0.75rem 2rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+
+.footer__button:hover {
+  background-color: #4a2f7a;
+}
+
+.footer__button:active {
+  background-color: #3a2560;
+}
+
+@media (max-width: 768px) {
+  .header__student-info {
+    flex-direction: column;
+  }
+
+  .header__student-item {
+    flex: 1 !important;
+  }
+
+  .footer__button {
+    width: 100%;
+  }
+}
+

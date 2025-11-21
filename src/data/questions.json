@@ -1,0 +1,88 @@
+{
+  "questions": [
+    {
+      "id": 1,
+      "type": "text",
+      "text": "Создайте каталог /home/student/test_dir. Выведите его атрибуты командой.",
+      "expected_answer": "ls -ld /home/student/test_dir",
+      "pattern": "ls\\s+-ld\\s+/home/student/test_dir"
+    },
+    {
+      "id": 2,
+      "type": "text",
+      "text": "Измените права доступа на файл test.txt так, чтобы владелец мог читать и писать, группа могла только читать, остальные --- без доступа.",
+      "expected_answer": "chmod 644 test.txt",
+      "pattern": "chmod\\s+644\\s+test\\.txt"
+    },
+    {
+      "id": 3,
+      "type": "text",
+      "text": "Добавьте право выполнения на файл script.sh. Выведите новые права доступа.",
+      "expected_answer": "chmod +x script.sh",
+      "pattern": "chmod\\s+\\+x\\s+script\\.sh"
+    },
+    {
+      "id": 4,
+      "type": "text",
+      "text": "Создайте жёсткую ссылку на файл original.txt с именем hardlink.txt.",
+      "expected_answer": "ln original.txt hardlink.txt",
+      "pattern": "ln\\s+original\\.txt\\s+hardlink\\.txt"
+    },
+    {
+      "id": 5,
+      "type": "text",
+      "text": "Создайте символическую ссылку на файл config.conf с именем config_link.",
+      "expected_answer": "ln -s config.conf config_link",
+      "pattern": "ln\\s+-s\\s+config\\.conf\\s+config_link"
+    },
+    {
+      "id": 6,
+      "type": "text",
+      "text": "Создайте нового пользователя newuser и установите пароль для пользователя newuser командой passwd.",
+      "expected_answer": "useradd newuser",
+      "pattern": "useradd\\s+newuser"
+    },
+    {
+      "id": 7,
+      "type": "text",
+      "text": "Создайте новую группу developers.",
+      "expected_answer": "groupadd developers",
+      "pattern": "groupadd\\s+developers"
+    },
+    {
+      "id": 8,
+      "type": "text",
+      "text": "Установите пакет wget. Проверьте версию командой.",
+      "expected_answer": "sudo dnf install wget -y",
+      "pattern": "sudo\\s+dnf\\s+install\\s+wget\\s+-y"
+    },
+    {
+      "id": 9,
+      "type": "text",
+      "text": "Найдите все установленные пакеты, содержащие строку bind командой.",
+      "expected_answer": "dnf list installed | grep bind",
+      "pattern": "dnf\\s+list\\s+installed\\s+\\|\\s+grep\\s+bind"
+    },
+    {
+      "id": 10,
+      "type": "text",
+      "text": "Выведите детальную информацию о пакете httpd командой.",
+      "expected_answer": "dnf info httpd",
+      "pattern": "(dnf\\s+info\\s+httpd|rpm\\s+-qi\\s+httpd)"
+    },
+    {
+      "id": 11,
+      "type": "text",
+      "text": "Создайте структуру каталогов проекта: /home/student/project/src, /home/student/project/config, /home/student/project/data с файлами src.txt, conf.conf, data.txt соответственно.",
+      "expected_answer": "mkdir -p /home/student/project/src /home/student/project/config /home/student/project/data",
+      "pattern": "mkdir\\s+-p\\s+/home/student/project/(src|config|data)"
+    },
+    {
+      "id": 12,
+      "type": "radio",
+      "text": "Вопрос?",
+      "options": ["Ответ 1", "Ответ 2", "Ответ 3"],
+      "correctAnswer": "Ответ 2"
+    }
+  ]
+}
