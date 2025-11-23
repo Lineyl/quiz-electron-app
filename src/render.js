@@ -1,4 +1,5 @@
 import { validateAllAnswer } from "./validator.js";
+const SHOW_RESULTS_COLOR_MODE = false;
 let data;
 
 fetch('./data/questions.json')
@@ -84,7 +85,49 @@ const renderResults = (results) => {
   }
 }
 
+const renderResultsModal = (results) => {
+  let correctCount = 0;
+  let totalCount = results.length;
+
+  for (let res of results) {
+    if (res.isCorrect) {
+      correctCount++;
+    }
+  }
+
+  const modal = document.createElement('div');
+  modal.className = 'results-modal';
+
+  const modalContent = document.createElement('div');
+  modalContent.className = 'results-modal__content';
+
+  const madalTitle = document.createElement('h2');
+  madalTitle.className = 'results-modal__title';
+  madalTitle.textContent = 'Результаты'
+  modalContent.appendChild(madalTitle);
+
+  const modalScore = document.createElement('p');
+  modalScore.className = 'results-modal__score';
+  modalScore.textContent = `Правильных ответов ${correctCount} из ${totalCount}`;
+  modalContent.appendChild(modalScore);
+
+  const closeBtn = document.createElement('button');
+  closeBtn.className = 'results-modal__close-btn';
+  closeBtn.textContent = 'Закрыть';
+
+  closeBtn.addEventListener('click', () => {
+    modal.remove();
+  })
+
+  modalContent.appendChild(closeBtn);
+  modal.appendChild(modalContent);
+
+  document.body.appendChild(modal);
+}
+
 const saveBtn = document.getElementById('save-btn');
+let resultsData = null;
+
 saveBtn.addEventListener('click', (e) => {
   const headerInputs = document.querySelectorAll('.header__input');
 
@@ -136,15 +179,25 @@ saveBtn.addEventListener('click', (e) => {
 
   if (allFilled) {
     const results = validateAllAnswer(answers, data.questions);
-    renderResults(results);
-    disableAllInputs();
+    if (!resultsData){
+      if (SHOW_RESULTS_COLOR_MODE) {
+        renderResults(results);
+      }
+      renderResultsModal(results);
+      disableAllInputs();
 
-    window.electron.saveResults({
-      surname: document.querySelector('[id="surname"]').value,
-      name: document.querySelector('[id="name"]').value,
-      group: document.querySelector('[id="group_number"]').value,
-      results: results,
-    })
+      resultsData = results;
+      saveBtn.textContent = 'Посмотреть результат';
+
+      window.electron.saveResults({
+        surname: document.querySelector('[id="surname"]').value,
+        name: document.querySelector('[id="name"]').value,
+        group: document.querySelector('[id="group_number"]').value,
+        results: results,
+      })
+    } else {
+      renderResultsModal(resultsData);
+    }
   }
 })
 
@@ -157,7 +210,6 @@ document.addEventListener('input', (e) => {
 
 document.addEventListener('change', (e) => {
   if (e.target.getAttribute('type') === 'radio') {
-    // Найти контейнер с options
     const container = e.target.closest('.question__options');
     if (container) {
       container.style.border = '';

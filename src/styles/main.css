@@ -153,6 +153,50 @@ body {
   gap: 1rem;
 }
 
+.results-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+}
+
+.results-modal__content {
+  background: white;
+  padding: 2.5rem;
+  border-radius: 0.5rem;
+  text-align: center;
+}
+
+.results-modal__title {
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.results-modal__score {
+  font-size: 20px;
+  color: #555;
+  margin: 15px 0;
+}
+
+.results-modal__close-btn {
+  background: #5b3ba0;
+  color: white;
+  padding: 0.75rem 2rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.results-modal__close-btn:hover {
+  background: #4a2f7a;
+}
+
 .footer {
   background-color: white;
   padding: 1.5rem;

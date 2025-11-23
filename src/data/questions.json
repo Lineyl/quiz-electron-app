@@ -38,7 +38,7 @@
     {
       "id": 6,
       "type": "text",
-      "text": "Создайте нового пользователя newuser и установите пароль для пользователя newuser командой passwd.",
+      "text": "Создайте нового пользователя newuser",
       "expected_answer": "useradd newuser",
       "pattern": "useradd\\s+newuser"
     },
@@ -52,9 +52,9 @@
     {
       "id": 8,
       "type": "text",
-      "text": "Установите пакет wget. Проверьте версию командой.",
-      "expected_answer": "sudo dnf install wget -y",
-      "pattern": "sudo\\s+dnf\\s+install\\s+wget\\s+-y"
+      "text": "Установите пакет wget",
+      "expected_answer": "sudo dnf install wget",
+      "pattern": "sudo\\s+dnf\\s+install\\s+wget"
     },
     {
       "id": 9,
@@ -73,16 +73,44 @@
     {
       "id": 11,
       "type": "text",
-      "text": "Создайте структуру каталогов проекта: /home/student/project/src, /home/student/project/config, /home/student/project/data с файлами src.txt, conf.conf, data.txt соответственно.",
+      "text": "Создайте структуру каталогов проекта: /home/student/project/src, /home/student/project/config, /home/student/project/data.",
       "expected_answer": "mkdir -p /home/student/project/src /home/student/project/config /home/student/project/data",
       "pattern": "mkdir\\s+-p\\s+/home/student/project/(src|config|data)"
     },
     {
       "id": 12,
       "type": "radio",
-      "text": "Вопрос?",
-      "options": ["Ответ 1", "Ответ 2", "Ответ 3"],
-      "correctAnswer": "Ответ 2"
+      "text": "Какая команда используется для перехода в другую директорию?",
+      "options": ["pwd", "cd", "ls", "mkdir"],
+      "correctAnswer": "cd"
+    },
+    {
+      "id": 13,
+      "type": "radio",
+      "text": "Какая из команд используется для изменения прав доступа к файлу?",
+      "options": ["chmod", "chown", "cp", "mv"],
+      "correctAnswer": "chmod"
+    },
+    {
+      "id": 14,
+      "type": "radio",
+      "text": "Что из перечисленного содержит зашифрованные пароли пользователей в Linux?",
+      "options": ["/etc/passwd", "/etc/group", "/etc/shadow", "/var/log/auth.log"],
+      "correctAnswer": "/etc/shadow"
+    },
+    {
+      "id": 15,
+      "type": "radio",
+      "text": "Какая команда используется для проверки сетевого соединения с другим компьютером?",
+      "options": ["ping", "ssh", "ftp", "netstat"],
+      "correctAnswer": "ping"
+    },
+    {
+      "id": 16,
+      "type": "radio",
+      "text": "Какая команда используется для изменения информации о существующем пользователе в Linux?",
+      "options": ["useradd", "usermod", "passwd", "groupadd"],
+      "correctAnswer": "usermod"
     }
   ]
 }
